@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
-import { isUndefined, isNull } from 'lodash';
 
 import errorFormatter from '../validators/common.validator';
 
@@ -27,7 +26,7 @@ class UserController {
                 .throw();
 
             //Get users of the company users
-            const user = await this.userService.getUserById(req.user.company_id, parseInt(req.params.user_id));
+            const user = await this.userService.getUserById(parseInt(req.params.user_id));
             return responseSuccess(
                 res,
                 {

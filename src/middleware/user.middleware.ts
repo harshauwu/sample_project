@@ -5,7 +5,7 @@ import { UserService } from '../services/user.service';
 export const companyUser = (): RequestHandler => {
     // Return a middleware
     return async (req: Request, res: Response, next: NextFunction) => {
-        const companyId: number = req.user.company_id
+        //const companyId: number = req.user.company_id
 
         // Check if user_id is provided and is a valid number
         if (!req.params.user_id || isNaN(Number(req.params.user_id))) {
