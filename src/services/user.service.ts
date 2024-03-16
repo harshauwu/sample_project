@@ -1,14 +1,20 @@
 
 import { User } from '../database/models/user';
 
-import { IUserAttributes} from '../interfaces/user-data';
+import { IUserAttributes} from '../interfaces/user. interface';
 
 
 
 export class UserService {
 
-    async getUserById(userId?: number): Promise<IUserAttributes | null> {
-        try {
+    async getUserById(userId: number): Promise<IUserAttributes | null> {
+
+        if (userId === null || userId === undefined) { 
+            // Throwing a specific error message is preferred for easier debugging.
+            throw new Error('The user ID must not be null or undefined.');
+        }
+
+        try {     
             return User.findOne({
                 where: { id: userId },
                 attributes: ['id', 'name', 'email', 'master_user_group_id', 'company_id', 'title', 'phone_number', 'last_name'],
