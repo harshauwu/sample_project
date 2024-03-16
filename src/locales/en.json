@@ -1,0 +1,5 @@
+{
+	"messages.validation.error.is_string": "{{attribute}} should be string.",
+	"messages.validation.error.is_required": "{{attribute}} is required.",
+	"messages.validation.error.is_numeric": "{{attribute}} should be numeric."
+}
